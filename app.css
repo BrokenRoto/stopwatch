@@ -7,6 +7,36 @@ body {
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 200px;
     margin: 150px 0;
     flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    background-color: #FED766;
+    border: 2px solid #696773;
+    border-radius: 2em;
+    text-align: center;
+}
+
+.counter {
+    font-size: 3rem;
+}
+
+.buttons {
+    margin-top: 2em;
+}
+
+.buttons button {
+    font-size: 1.5rem;
+}
+
+button {
+    background-color: #696773;
+    color: white;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
 }
