@@ -1,0 +1,12 @@
+body {
+  background-color: #009FB7;
+  display: flex;
+  justify-content: center;
+}
+
+
+.container {
+    display: flex;
+    margin: 150px 0;
+    flex-direction: column;
+}
