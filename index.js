@@ -1,34 +1,46 @@
-const startBtn = document.getElementById('start-btn');
-const resetBtn = document.getElementById('reset-btn');
-const stopBtn = document.getElementById('stop-btn');
-const counter = document.querySelector('.counter');
+const startBtn = document.getElementById("start-btn");
+const resetBtn = document.getElementById("reset-btn");
+const stopBtn = document.getElementById("stop-btn");
+const counter = document.querySelector(".counter");
 
 let tenMS = 0;
 let timerID = null;
 
 const updateCounter = () => {
-    const minutes = Math.floor((tenMS / 6000) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-    const seconds = Math.floor((tenMS / 100) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}); 
-    const ms = (tenMS % 100).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-    counter.innerHTML = `${minutes}:${seconds}:${ms}`;
-}
-
-const startTimer = () => {
-    tenMS++;
-    updateCounter();
+  const minutes = Math.floor((tenMS / 6000) % 60).toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  const seconds = Math.floor((tenMS / 100) % 60).toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  const ms = (tenMS % 100).toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  counter.innerHTML = `${minutes}:${seconds}:${ms}`;
 };
 
+const startTimer = () => {
+  tenMS++;
+  updateCounter();
+};
 
-startBtn.addEventListener('click', () => {
+startBtn.addEventListener("click", () => {
+  if (!timerID) {
     timerID = setInterval(startTimer, 10);
+  }
 });
 
-stopBtn.addEventListener('click', () => {
-    clearInterval(timerID); 
-})
+stopBtn.addEventListener("click", () => {
+  clearInterval(timerID);
+  timerID = null;
+});
 
-resetBtn.addEventListener('click', () => {
-    clearInterval(timerID);
-    tenMS = 0;
-    updateCounter();
-})
+resetBtn.addEventListener("click", () => {
+  clearInterval(timerID);
+  timerID = null;
+  tenMS = 0;
+  updateCounter();
+});
